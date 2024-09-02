@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- <style type="text/tailwindcss">
+    *{
+        border: 1px solid red
+        
+    }
+  </style>  -->
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-white">
+    <!-- Navigasi Bar -->
+    <div class="bg-blue-950  py-3 text-center">
+        <a href="#" class="text-white font-bold text-3xl hover:text-gray-200">DRAMAKU</a>
+    </div>
+
+
+    <!-- Bagian Deskripsi Film -->
+    <div class="flex flex-wrap p-6 border-slate-200 rounded-xl  mt-10 shadow-lg border">
+        <div class="flex items-center">
+            <!-- Foto -->
+            <div>
+                <a class="hover:opacity-30 ">
+                    <img src="Ae_Dil_Hai_Mushkil2.jpg" class="rounded-xl h-96">
+                </a>
+            </div>
+            <!-- Table detail film -->
+            <div class="pl-5 ">
+                <div class="bg-white flex flex-col justify-start ml-2">
+                    <a href="#" class="text-4xl font-bold pb-4 w-96">Ae Dil Hai Mushkil</a>
+                    <table>
+                        <tbody class="bg-white">
+                            <tr>
+                                <td class="px-0 py-3 text-left text-lg text-black w-24">Year</td>
+                                <td class="px-0 py-1 text-center text-lg text-black w-5\">:</td>
+                                <td class="px-0 py-3 text-left text-lg text-black ">2016</td>
+                            </tr>
+                        </tbody>
+                        <tbody class="bg-white">
+                            <tr>
+                                <td class="px-0 py-3 text-left text-lg text-black w-24">Country</td>
+                                <td class="px-0 py-1 text-center text-lg text-black w-5">:</td>
+                                <td class="px-0 py-3 text-left text-lg text-black">India</td>
+                            </tr>
+                        </tbody>
+                        <tbody class="bg-white">
+                            <tr>
+                                <td class="px-0 py-3 text-left text-lg text-black w-24">Genre</td>
+                                <td class="px-0 py-1 text-center text-lg text-black w-5">:</td>
+                                <td class="px-0 py-3 text-left text-lg text-black">Romance, Drama</td>
+                            </tr>
+                        </tbody>
+                        <tbody class="bg-white">
+                            <tr>
+                                <td class="px-0 py-3 text-left text-lg text-black w-24">Availability</td>
+                                <td class="px-0 py-1 text-center text-lg text-black w-5">:</td>
+                                <td class="px-0 py-3 text-left text-lg text-black">Prime Video</td>
+                            </tr>
+                        </tbody>
+                        <tbody class="bg-white">
+                            <tr>
+                                <td class="px-0 py-3 text-left text-lg text-black w-24">Actor</td>
+                                <td class="px-0 py-1 text-center text-lg text-black w-5">:</td>
+                                <td class="px-0 py-3 text-left text-lg text-black w-">Header 2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>   
+
+    </div>
+
+    
+    <div class=" mt-6 pt-6 m-auto bg-white">
+        <div class="relative">
+            <a href="https://www.youtube.com/watch?v=Z_PODraXg4E">
+                <img class="rounded-lg  px-4 w-full h-96 brightness-50"  src="Ae_Dil_Hai_Mushkil2.jpg" alt="" />
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <h2 class="bg- text-white text-3xl font-bold hover:text-gray-200">Watch Trailer</h2>
+                    </div>
+            </a>
+        </div>
+        <div class="border-slate-200 rounded-xl mx-5 p-5 mt-10 shadow-md">
+            <a href="#">
+                <h5 class="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white uppercase">Synopsis</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Ayan goes on a quest for true love when Alizeh does not reciprocate his
+                feelings. On his journey, he meets different people who make him realize the power of unrequited
+                love.</p>
+        </div>
+    </div>
+
+    <div class="mx-6 mt-10 border-slate-200 rounded-xl p-5  shadow-md">
+        <div class="flex">
+            <div class="px-2  pt-2 font-semibold  flex grow rounded-xl shadow-md">
+               (4) Komentar
+            </div>
+    
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="flex-none shadow-md text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Rating ⭐<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                </svg>
+            </button>
+                
+             <!-- Dropdown menu -->
+            <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">⭐</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">⭐⭐</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">⭐⭐⭐</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">⭐⭐⭐⭐</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">⭐⭐⭐⭐⭐</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="pt-3 flex">
+            <div class="rounded-full bg-sky-600 ">
+                D
+            </div>
+            <div class="flex-grow ml-2 ">
+                Daffa (30/08/2024) Said : This Movie is Awesome
+                <div>⭐⭐⭐⭐⭐</div>
+            </div>
+        </div>
+        <div class="pt-2 flex">
+            <div class="rounded-full bg-sky-600 ">
+                D
+            </div>
+            <div class="flex-grow ml-2">
+                Daffa (30/08/2024) Said : This Movie is Awesome
+                <div>⭐⭐⭐⭐⭐</div>
+            </div>
+        </div>  
+        <div class="pt-2 flex">
+            <div class="rounded-full bg-sky-600 ">
+                D
+            </div>
+            <div class="flex-grow ml-2">
+                Daffa (30/08/2024) Said : This Movie is Awesome
+                <div>⭐⭐⭐⭐⭐</div>
+            </div>
+        </div>  
+        <div class="flex pt-2">
+            <div class="rounded-full bg-sky-600 ">
+                D
+            </div>
+            <div class="flex-grow ml-2">
+                Daffa (30/08/2024) Said : This Movie is Awesome
+                <div>⭐⭐⭐⭐⭐</div>
+            </div>
+        </div>    
+    </div>
+
+    <div class="border-slate-200 font-semibold rounded-xl mx-6 p-5 mt-10 shadow-md ">
+        <form action="">
+            <label for="text">
+                <span>Your Thoughts</span>
+                <input type="text" id="text" placeholder="Masukkan Komentar" class="mt-2 w-full border shadow-md rounded-md block">                
+            </label>
+        </form>
+        
+        <form class="mt-4 max-w-sm">
+            <label for="countries" class="block mb-2 font-semibold text-gray-900 dark:text-white">Your Rating</label>
+            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option selected>⭐...</option>
+                <option value=1>⭐</option>
+                <option value=2>⭐⭐</option>
+                <option value=3>⭐⭐⭐</option>
+                <option value=4>⭐⭐⭐⭐</option>
+                <option value=5>⭐⭐⭐⭐⭐</option>
+            </select>
+        </form>
+
+        <button type="button" class="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+
+  
+    </div>
+
+    <hr class="mt-24 border-t-4">
+    
+    
+
+</body>
+
+</html>
