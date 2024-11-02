@@ -1,38 +1,47 @@
 import React from 'react';
-import { Link } from '@inertiajs/inertia-react'; // Impor Link dari Inertia
+import { Link } from '@inertiajs/react';
 import SidebarButton from './SidebarButton';
 import logo from '../../foto/logo.png';
 import SearchLogin from './HomePage/SearchLogin';
 import LoginButton from './LoginButton';
 import UserProfile from './UserProfile';
+import LogoutButton from './LogoutButton';
 
-export default function NavbarUtama({ countrys, onSearch }) { 
+export default function NavbarUtama({ countrys, onSearch, user }) {
   return (
     <div className="bg-blue-950 py-3 flex items-center justify-between px-4">
-      {/* SidebarButton */}
       <div className='flex-none'>
-        <SidebarButton countrys={countrys} />
+        {/* SidebarButton hanya ditampilkan jika user ada dan memiliki role ADMIN */}
+        {user && user.role === 'ADMIN' && (
+          <SidebarButton countrys={countrys} />
+        )}
       </div>
 
-      {/* Logo dan Search bar dalam satu flex row */}
       <div className='ml-4 flex items-center flex-grow'>
         <Link href="/" className='flex-none'>
-          <img 
+          <img
             src={logo}
             alt="Logo"
-            className="h-20 w-auto"
+            className={`h-20 w-auto ${!user || user.role === 'USER' ? 'ml-24' : ''}`}
           />
         </Link>
         <div className='ml-4 w-full'>
           <SearchLogin onSearch={onSearch} />
         </div>
-        <div className='mr-2'>
-          <LoginButton/>
-        </div>
-        <div className='flex-none'>
-          <UserProfile/>
+        <div className='flex items-center'>
+          {!user ? (
+            <LoginButton />
+          ) : (
+            <>
+              <div className='mr-2'>
+                <LogoutButton />
+              </div>
+              <UserProfile user={user} />
+            </>
+          )}
         </div>
       </div>
     </div>
   );
 }
+

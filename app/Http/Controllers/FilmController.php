@@ -10,7 +10,10 @@ use Inertia\Response;
 use App\Models\Country;
 use App\Models\Genre;
 use App\Models\Platform;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class FilmController extends Controller
@@ -90,25 +93,14 @@ class FilmController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    // public function show(Film $film)
-    // {
-    //     //
-    // }
-
-  
-
     public function show($id)
     {
-        $film = Film::with(['genres','platforms','actors'])->where('film_id', $id)->first();
+        $film = Film::with(['genres', 'platforms', 'actors'])->where('film_id', $id)->first();
 
-        // dd($film);
-        
-    return inertia::render('HalamanFilm', [
-        'film' => $film,
-    ]);
+        return Inertia::render('HalamanFilm', [
+            'film' => $film,
+            'user' => Auth::check() ? Auth::user() : null, // Gunakan Auth facade secara langsung
+        ]);
     }
 
     /**
@@ -135,7 +127,31 @@ class FilmController extends Controller
         //
     }
 
-    // FilmController.php
+    public function storeComment(Request $request, $id)
+    {
+        Log::info("Received comment request:", [
+            'user_id' => Auth::user()->id, // Ambil user_id dari Auth
+            'comment' => $request->input('comment'),
+            'rating' => $request->input('rating'),
+        ]);
+
+        $request->validate([
+            'comment' => 'required|string',
+            'rating' => 'required|integer|min:1|max:5',
+        ]);
+
+        // Buat komentar baru
+        DB::table('tb_comment')->insert([
+            'user_id' => Auth::user()->id,
+            'film_id' => $id,
+            'comment' => $request->input('comment'),
+            'rating' => $request->input('rating'),
+            'status' => 'approved',
+        ]);
+
+        return response()->json(['message' => 'Komentar berhasil ditambahkan'], 200);
+    }
+
 
 public function getAllFilms()
 {

@@ -5,8 +5,9 @@ import FilmPage from '@/Components/HomePage/FilmPage';
 import NavbarUtama from '@/Components/NavbarUtama';
 
 export default function Homepage(props) {
-    const filmData = props.films.data; // Ambil data film dari props
-    const pagination = props.films.links; // Ambil link pagination
+    const { auth } = usePage().props; // Ambil data auth dari usePage props
+    const filmData = props.films.data;
+    const pagination = props.films.links;
     const countryData = props.countrys;
     const genreData = props.genres;
     const platformData = props.platforms;
@@ -15,11 +16,8 @@ export default function Homepage(props) {
         <>
             <div>
                 <Head title={props.title} />
-                <NavbarUtama countrys={countryData} />
-                {/* {console.log(countryData)} */}
-                {/* Berikan filmData ke FilmPage */}
-                <FilmPage countrys={countryData} films={filmData}  genres={genreData} platforms={platformData} />                
-                {/* Render Pagination */}
+                <NavbarUtama countrys={countryData} user={auth.user} />
+                <FilmPage countrys={countryData} films={filmData} genres={genreData} platforms={platformData} />                
                 <div className="flex justify-center mt-4 mb-4">
                     {pagination.map((link, index) => (
                         <Link
@@ -28,7 +26,7 @@ export default function Homepage(props) {
                             className={`mx-1 px-3 py-2 border rounded ${
                                 link.active ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'
                             }`}
-                            dangerouslySetInnerHTML={{ __html: link.label }} // Menampilkan label pagination (Previous, Next, angka)
+                            dangerouslySetInnerHTML={{ __html: link.label }}
                         />
                     ))}
                 </div>
@@ -36,3 +34,4 @@ export default function Homepage(props) {
         </>
     );
 }
+

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Head, Link } from '@inertiajs/react';
 import Navbar from '@/Components/Navbar';
 import FilmDetail from '@/Components/FilmDetail';
 import FilmTrailer from '@/Components/FilmTrailer';
@@ -7,8 +6,9 @@ import Comments from '@/Components/Comments';
 import CommentForm from '@/Components/CommentForm';
 import ListActor from "@/Components/ListActor";
 
+function HalamanFilm(props) {
+  const { film, auth } = props; // pastikan `auth` tersedia di props
 
-function HalamanFilm(props) {  
   return (
     <div>
       <Navbar />
@@ -16,7 +16,13 @@ function HalamanFilm(props) {
       <FilmTrailer props={props}/>
       <ListActor props={props}/>
       <Comments />
-      <CommentForm />
+
+      {/* Hanya tampilkan CommentForm jika user sudah login */}
+      {auth.user ? (
+        <CommentForm filmId={film.film_id} userId={auth.user.id}/>
+      ) : (
+        <p>Login untuk memberi komentar.</p>
+      )}
     </div>
   );
 }
